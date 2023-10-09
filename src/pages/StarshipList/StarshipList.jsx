@@ -1,6 +1,8 @@
 import { getAllStarships } from "../../services/sw-api"
+import NavBar  from "../../components/NavBar/NavBar"
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
+
 
 const StarshipList = () => {
   const [starshipList, setStarshipList] = useState([])
@@ -17,6 +19,7 @@ const StarshipList = () => {
 
   return (
     <main className="starship-list">
+      <NavBar title={'STAR WARS STARSHIPS'}/>
       <h1>Starship List (OMG SCARY)</h1>
       {starshipList.map((starship, idx) =>
         <div className="link-container" key={idx}>
