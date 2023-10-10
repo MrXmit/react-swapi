@@ -2,6 +2,7 @@ import { getAllStarships } from "../../services/sw-api"
 import NavBar  from "../../components/NavBar/NavBar"
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
+import './StarshipList.css'
 
 
 const StarshipList = () => {
@@ -18,15 +19,18 @@ const StarshipList = () => {
   if (!starshipList.length) return <h1>Loading scary starships...</h1>
 
   return (
-    <main className="starship-list">
-      <NavBar title={'STAR WARS STARSHIPS'}/>
-      <h1>Starship List (OMG SCARY)</h1>
+    <>
+    <h1>Starship List (OMG SCARY)</h1>
+    <NavBar title={'STAR WARS STARSHIPS'}/>
+
+    <main className="starship-container">  
       {starshipList.map((starship, idx) =>
-        <div className="link-container" key={idx}>
+        <div className="starship-link" key={idx}>
           <Link to={`/starships/${idx}`}>{starship.name}</Link>
         </div>  
       )}
     </main>
+    </>
   )
 }
 
